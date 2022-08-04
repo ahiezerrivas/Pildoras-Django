@@ -3,7 +3,27 @@ import datetime
 from django.http import HttpResponse
 from django.template import Template, Context
 
+
+class Persona(object):
+    
+    def __init__(self,nombre,apellido) :
+        self.nombre=nombre
+
+        self.apellido=apellido
+
+
 def saludo(request): #primera vista
+
+
+    p1=Persona(" Profesor Juan", "Diaz" ) 
+
+
+
+    # nombre="Juan"
+
+    # apellido="Ramiro"
+
+    ahora=datetime.datetime.now()
 
     doc_externo=open("C:/Users/ahiezer/Documents/pildoras informaticas/django/Proyecto1/Proyecto1/plantillas/miplantilla.html")
 
@@ -11,7 +31,7 @@ def saludo(request): #primera vista
 
     doc_externo.close()
 
-    ctx= Context()
+    ctx= Context({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora})
 
     documento=plt.render(ctx)
     return HttpResponse(documento)
