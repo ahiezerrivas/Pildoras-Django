@@ -12,5 +12,25 @@
 
     <p>Estamos viendo el tema de las plantillas a d&iacute;a: {{ momento_actual.day }}/{{ momento_actual.month }}/{{ momento_actual.year }}
     </p>
+
+    <p><strong>Temas del curso</strong></p>
+    <p><strike>hola</strike></p>
+
+    <p>
+        <ul>
+        {% if temas %}
+            {% for elTema in temas %} 
+                
+            <li>{{elTema}}</li>
+
+            {% endfor %}
+
+        {% else %} 
+            <p>NO hay elementos que mostrar</p>
+        {% endif %}
+        </ul>
+    </p>
+
+
 </body>
 </html>

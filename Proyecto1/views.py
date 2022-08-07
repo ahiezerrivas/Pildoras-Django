@@ -22,6 +22,7 @@ def saludo(request): #primera vista
     # nombre="Juan"
 
     # apellido="Ramiro"
+    temasDelCurso=["Plantillas", "Modelos", "Formularios", "Vistas","Despliegue"]
 
     ahora=datetime.datetime.now()
 
@@ -31,7 +32,7 @@ def saludo(request): #primera vista
 
     doc_externo.close()
 
-    ctx= Context({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora})
+    ctx= Context({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso})
 
     documento=plt.render(ctx)
     return HttpResponse(documento)
