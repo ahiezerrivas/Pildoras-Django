@@ -3,6 +3,7 @@ import datetime
 from django.http import HttpResponse
 from django.template import Template, Context
 from django.template import loader
+from django.shortcuts import render
 
 
 class Persona(object):
@@ -33,13 +34,13 @@ def saludo(request): #primera vista
 
     # doc_externo.close()
 
-    doc_externo=loader.get_template
+    # doc_externo=loader.get_template
 
     # ctx= Context({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso})
 
-    doc_externo=loader.get_template('miplantilla.html')
-    documento=doc_externo.render({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso})
-    return HttpResponse(documento)
+    # doc_externo=loader.get_template('miplantilla.html')
+    # documento=doc_externo.render({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso})
+    return render(request, "miplantilla.html",{"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso} )
 
 def despedida(request): #primera vista
     return HttpResponse("Hasta luegodjango")
