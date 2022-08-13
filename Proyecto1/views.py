@@ -42,6 +42,16 @@ def saludo(request): #primera vista
     # documento=doc_externo.render({"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso})
     return render(request, "miplantilla.html",{"nombre_persona":p1.nombre, "apellido_persona":p1.apellido, "momento_actual":ahora, "temas": temasDelCurso} )
 
+def cursoC(request):
+    fecha_actual=datetime.datetime.now()
+
+    return render(request, "CursoC.html", {"dameFecha":fecha_actual})
+
+def cursoCss(request):
+    fecha_actual=datetime.datetime.now()
+
+    return render(request, "CursoCss.html", {"dameFecha":fecha_actual})
+
 def despedida(request): #primera vista
     return HttpResponse("Hasta luegodjango")
 
